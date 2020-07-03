@@ -6,6 +6,7 @@ It's a fully clickable VR prototype. [You can download SteamVR build](https://gi
 But it's an only prototype so there a few small bugs. 
 
 Project files require these assets to work:
+[DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676),
 [Big Furniture Pack](https://assetstore.unity.com/packages/3d/props/furniture/big-furniture-pack-7717),
 [Interior Collection](https://assetstore.unity.com/packages/3d/props/interior/interior-collection-144505),
 TextMesh PRO,
