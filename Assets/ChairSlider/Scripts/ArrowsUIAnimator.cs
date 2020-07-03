@@ -35,7 +35,7 @@ public class ArrowsUIAnimator : MonoBehaviour
 
         if (_expandArrowTimer.OnceTimerIsComplete())
         {
-            DOTween.To(() => _tweenImageOutline, x => _tweenImageOutline = x, 1, ChairSliderInfo.current.itemAnimationDuration / 2).SetEase(_uiEaseType);
+            DOTween.To(() => _tweenImageOutline, x => _tweenImageOutline = x, 1, AnimationDurations.current.itemAnimationDuration / 2).SetEase(_uiEaseType);
         }
 
     }
@@ -54,8 +54,8 @@ public class ArrowsUIAnimator : MonoBehaviour
 
         else if (transform.GetSiblingIndex() == transform.parent.childCount / 2)//center
         {
-            ShowOrHideArrowTweens(_arrowRight, ChairSliderInfo.current.itemAnimationDuration, false);
-            ShowOrHideArrowTweens(_arrowLeft, ChairSliderInfo.current.itemAnimationDuration, false);
+            ShowOrHideArrowTweens(_arrowRight, AnimationDurations.current.itemAnimationDuration, false);
+            ShowOrHideArrowTweens(_arrowLeft, AnimationDurations.current.itemAnimationDuration, false);
         }
     }
 
@@ -70,12 +70,12 @@ public class ArrowsUIAnimator : MonoBehaviour
 
         if (transform.GetSiblingIndex() > transform.parent.childCount / 2)//right
         {
-            ShowOrHideArrowTweens(arrow, ChairSliderInfo.current.itemAnimationDuration, _enableArrow);
+            ShowOrHideArrowTweens(arrow, AnimationDurations.current.itemAnimationDuration, _enableArrow);
         }
 
         else if (transform.GetSiblingIndex() < transform.parent.childCount / 2)//left
         {
-            ShowOrHideArrowTweens(arrow, ChairSliderInfo.current.itemAnimationDuration, _enableArrow);
+            ShowOrHideArrowTweens(arrow, AnimationDurations.current.itemAnimationDuration, _enableArrow);
         }
     }
 
@@ -86,8 +86,8 @@ public class ArrowsUIAnimator : MonoBehaviour
         from.gameObject.SetActive(false);
 
         to.gameObject.SetActive(true);
-        to.DOScale(_arrowStartScale, ChairSliderInfo.current.itemAnimationDuration / 2).SetEase(_uiEaseType).SetDelay(ChairSliderInfo.current.itemAnimationDuration * 2);
-        _expandArrowTimer.SetTimer(ChairSliderInfo.current.itemAnimationDuration * 2);
+        to.DOScale(_arrowStartScale, AnimationDurations.current.itemAnimationDuration / 2).SetEase(_uiEaseType).SetDelay(AnimationDurations.current.itemAnimationDuration * 2);
+        _expandArrowTimer.SetTimer(AnimationDurations.current.itemAnimationDuration * 2);
     }
 
     private void HideArrowInActiveSelector(Vector2 direction, float _itemAnimationDuration) //hide arrow if selector is active
@@ -124,6 +124,8 @@ public class ArrowsUIAnimator : MonoBehaviour
     {
         ChairSliderEvents.OnSlide -= HideArrowInActiveSelector;
         ChairSliderEvents.OnForceSwitchArrows -= SwitchArrows;
+        ChairSliderEvents.OnEnableOrDisableArrows -= EnableOrDisableArrows;
+
     }
 
 

@@ -1,13 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class ChairSliderInfo : MonoBehaviour
+public class HoverController : MonoBehaviour
 {
-    [Range(0f, 1f)]
-    public float pathAnimationDuration = 0.7f;
-    [Range(0f, 1f)]
-    public float itemAnimationDuration = 0.3f;
-
-    public static ChairSliderInfo current;
 
     [SerializeField]
     private BoxCollider _uiCollider;
@@ -20,25 +16,21 @@ public class ChairSliderInfo : MonoBehaviour
     private GameObject _lastHittedObject;
     private Timer _timerHideArrowsOnStart = new Timer();
 
-    private void Awake()
-    {
-        current = this;
-    }
-
     private void Start()
     {
 
         _timerHideArrowsOnStart.SetTimer(2);
 
-        ChairSliderEvents.OnChangeControl += ChangeBool;
+        ChairSliderEvents.OnChangeControl += CheckControlExpanded;
         ChairSliderEvents.StartControl(1);
-        ChairSliderEvents.CloseUI(1, pathAnimationDuration, false, false);
+        ChairSliderEvents.CloseUI(1, AnimationDurations.current.pathAnimationDuration, false, false);
     }
+
 
     private void Update()
     {
 
-        if(_timerHideArrowsOnStart.OnceTimerIsComplete())
+        if (_timerHideArrowsOnStart.OnceTimerIsComplete())
         {
             ChairSliderEvents.EnableOrDisableArrows(false);
             ChairSliderEvents.CloseCounter();
@@ -53,14 +45,14 @@ public class ChairSliderInfo : MonoBehaviour
             {
                 print(_lastHittedObject != _uiCollider);
                 print(_uiCollider);
-                ChairSliderEvents.OpenUI(ChairSliderInfo.current.itemAnimationDuration, true);
+                ChairSliderEvents.OpenUI(AnimationDurations.current.itemAnimationDuration, true);
                 ChairSliderEvents.OpenCounter();
             }
 
         }
         else if (IsExitHovering())
         {
-            ChairSliderEvents.CloseUI(0, ChairSliderInfo.current.itemAnimationDuration, false, true);
+            ChairSliderEvents.CloseUI(0, AnimationDurations.current.itemAnimationDuration, false, true);
             ChairSliderEvents.CloseCounter();
         }
 
@@ -94,7 +86,7 @@ public class ChairSliderInfo : MonoBehaviour
     }
 
 
-    private void ChangeBool(int _notUsed, float _notUsed2, bool isExpanding)
+    private void CheckControlExpanded(int _notUsed, float _notUsed2, bool isExpanding)
     {
         if (isExpanding)
             _isControlExpanded = true;
@@ -111,5 +103,10 @@ public class ChairSliderInfo : MonoBehaviour
         Ray ray = new Ray(_pointer.position, _pointer.forward);
         Physics.Raycast(ray, out hit);
         return hit;
+    }
+
+    private void OnDestroy()
+    {
+        ChairSliderEvents.OnChangeControl -= CheckControlExpanded;
     }
 }

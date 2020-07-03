@@ -109,13 +109,13 @@ public class CounterAnimator : MonoBehaviour
 
     private void HideCounter()
     {
-            transform.DOScale(0, ChairSliderInfo.current.itemAnimationDuration/2).SetEase(_easeType);
+            transform.DOScale(0, AnimationDurations.current.itemAnimationDuration/2).SetEase(_easeType);
     }
 
     private void ShowCounter()
     {
-            transform.DOScale(1, ChairSliderInfo.current.itemAnimationDuration / 2).SetEase(_easeType)
-                .SetDelay(ChairSliderInfo.current.pathAnimationDuration + ChairSliderInfo.current.itemAnimationDuration);
+            transform.DOScale(1, AnimationDurations.current.itemAnimationDuration / 2).SetEase(_easeType)
+                .SetDelay(AnimationDurations.current.pathAnimationDuration + AnimationDurations.current.itemAnimationDuration);
     }
 
     private void HideCounterOnHoverExit(int _activeOptionIndex, float _itemAnimDuration, bool _expand)
@@ -128,11 +128,15 @@ public class CounterAnimator : MonoBehaviour
     {
         if (!_expand)
             transform.DOScale(1, _itemAnimDuration / 2).SetEase(_easeType)
-                .SetDelay(ChairSliderInfo.current.pathAnimationDuration + ChairSliderInfo.current.itemAnimationDuration);
+                .SetDelay(AnimationDurations.current.pathAnimationDuration + AnimationDurations.current.itemAnimationDuration);
     }
 
     private void OnDestroy()
     {
         ChairSliderEvents.OnSlide -= SlideItems;
+        ChairSliderEvents.OnCloseCounter -= HideCounter;
+        ChairSliderEvents.OnOpenCounter -= ShowCounter;
     }
+
+
 }

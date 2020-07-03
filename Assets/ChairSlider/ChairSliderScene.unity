@@ -5238,8 +5238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3244d40999eca0842b3049126916d81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 672051151}
-  power: 1
 --- !u!114 &672051151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12148,7 +12146,7 @@ GameObject:
   - component: {fileID: 1553310754}
   - component: {fileID: 1553310753}
   m_Layer: 0
-  m_Name: DisableSTeamVR Tutorial
+  m_Name: DisableSteamVR Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12894,6 +12892,7 @@ GameObject:
   - component: {fileID: 1664006094}
   - component: {fileID: 1664006095}
   - component: {fileID: 1664006096}
+  - component: {fileID: 1664006097}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -12947,6 +12946,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathAnimationDuration: 0.5
   itemAnimationDuration: 0.3
+--- !u!114 &1664006097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664006093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318daa2c5a671cf4b90f8dcef0d5a653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _uiCollider: {fileID: 1700024959}
   _pointer: {fileID: 1996177754704520594}
 --- !u!1 &1676920415
@@ -13366,13 +13377,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700024957}
-  m_LocalRotation: {x: -0, y: 0.994322, z: -0, w: -0.10641391}
+  m_LocalRotation: {x: 0.026186075, y: 0.96374667, z: 0.24468039, w: -0.10314168}
   m_LocalPosition: {x: 13.76, y: 7.9955707, z: -13.122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1347553984}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 192.217, z: 0}
+  m_LocalEulerAnglesHint: {x: -28.491001, y: 192.217, z: 0}
 --- !u!65 &1700024959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27942,8 +27953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3244d40999eca0842b3049126916d81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 7215464307122149321}
-  power: 1
 --- !u!114 &6606197963238936271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27956,8 +27965,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3244d40999eca0842b3049126916d81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 7215464305806405504}
-  power: 1
 --- !u!114 &6606197963332011172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27970,8 +27977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3244d40999eca0842b3049126916d81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 7215464305981761003}
-  power: 1
 --- !u!135 &6628642852963609454
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -54,7 +54,7 @@ public class ChairUIAnimator : MonoBehaviour
         ChairSliderEvents.OnCloseUI += CloseUI;
         ChairSliderEvents.OnChangeColor += ChangeColorInUI;
 
-        _colorButton.onClick.AddListener(() => { ChairSliderEvents.CloseUI(activeOptionIndex, ChairSliderInfo.current.pathAnimationDuration, true, false); });
+        _colorButton.onClick.AddListener(() => { ChairSliderEvents.CloseUI(activeOptionIndex, AnimationDurations.current.pathAnimationDuration, true, false); });
         _colorName = _colorButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
@@ -146,10 +146,10 @@ public class ChairUIAnimator : MonoBehaviour
 
         _uiSequence = DOTween.Sequence().SetAutoKill(false);
         _uiSequence
-            .Append(_buttonBuy.DOScale(_buttonBuyEndScale, ChairSliderInfo.current.itemAnimationDuration / 2).SetEase(uiEaseType))
-            .Append(_sphere.DOScale(_sphereEndScale, ChairSliderInfo.current.itemAnimationDuration / 2).SetEase(uiEaseType))
-            .Append(_chairUI.DOScale(_chairUIEndScale, ChairSliderInfo.current.itemAnimationDuration).SetEase(uiEaseType))
-            .Insert(ChairSliderInfo.current.itemAnimationDuration, DOTween.To(() => _tweenImageBG, x => _tweenImageBG = x, _tweenImageBGEndOpacity, ChairSliderInfo.current.itemAnimationDuration / 2).SetEase(uiEaseType))
+            .Append(_buttonBuy.DOScale(_buttonBuyEndScale, AnimationDurations.current.itemAnimationDuration / 2).SetEase(uiEaseType))
+            .Append(_sphere.DOScale(_sphereEndScale, AnimationDurations.current.itemAnimationDuration / 2).SetEase(uiEaseType))
+            .Append(_chairUI.DOScale(_chairUIEndScale, AnimationDurations.current.itemAnimationDuration).SetEase(uiEaseType))
+            .Insert(AnimationDurations.current.itemAnimationDuration, DOTween.To(() => _tweenImageBG, x => _tweenImageBG = x, _tweenImageBGEndOpacity, AnimationDurations.current.itemAnimationDuration / 2).SetEase(uiEaseType))
             .AppendCallback(() => { ExpandControlOptions(_activeOptionIndex, _pathAnimationDuraion, _expandConrol); });
 
         if (_playingBackwards)
@@ -177,5 +177,7 @@ public class ChairUIAnimator : MonoBehaviour
         ChairSliderEvents.OnCloseUI -= CloseUI;
         ChairSliderEvents.OnChangeColor -= ChangeColorInUI;
     }
+
+
 
 }

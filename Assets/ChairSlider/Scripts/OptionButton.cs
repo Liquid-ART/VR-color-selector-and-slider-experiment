@@ -15,11 +15,11 @@ public class OptionButton : MonoBehaviour
     private int _startSublingIndex;
     private Timer _timer = new Timer();
 
-    private ChairSliderInfo _chairSliderInfo;
+    private AnimationDurations _chairSliderInfo;
 
     void Awake()
     {
-        _chairSliderInfo = GetComponentInParent<ChairSliderInfo>();
+        _chairSliderInfo = GetComponentInParent<AnimationDurations>();
         _colorName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
         _colorName = _colorName.Replace(" ", String.Empty);
 

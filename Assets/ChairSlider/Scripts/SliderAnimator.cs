@@ -89,8 +89,8 @@ public class SliderAnimator : MonoBehaviour
         }
 
         ChairSliderEvents.ForceSwitchArrows();
-        ChairSliderEvents.OpenUI(ChairSliderInfo.current.itemAnimationDuration, false);
-        ChairSliderEvents.CloseUI(0, ChairSliderInfo.current.itemAnimationDuration, false, false);
+        ChairSliderEvents.OpenUI(AnimationDurations.current.itemAnimationDuration, false);
+        ChairSliderEvents.CloseUI(0, AnimationDurations.current.itemAnimationDuration, false, false);
 
     }
 

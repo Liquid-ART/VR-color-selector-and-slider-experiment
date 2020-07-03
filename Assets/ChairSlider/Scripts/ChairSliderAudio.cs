@@ -57,4 +57,12 @@ public class ChairSliderAudio : MonoBehaviour
             soundPlayer.Play(4, sounds, audioTransitionsObj);
     }
 
+
+    private void OnDestroy()
+    {
+        ChairSliderEvents.OnPlayHoverSound -= PlayHoverSound;
+        ChairSliderEvents.OnPlaPressSound -= PlayPressSound;
+        ChairSliderEvents.OnSlide -= PlaySlideSound;
+        ChairSliderEvents.OnChangeControl -= PlaySelectorSounds;
+    }
 }

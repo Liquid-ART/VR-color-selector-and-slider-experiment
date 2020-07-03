@@ -37,5 +37,9 @@ public class ColorButtonTransitioner : MonoBehaviour, IPointerEnterHandler, IPoi
             _sphereColor = _material.GetColor("_BaseColor");
     }
 
+    private void OnDestroy()
+    {
 
+        ChairSliderEvents.OnChangeColor -= ChangeColor;
+    }    
 }

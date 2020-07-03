@@ -159,7 +159,7 @@ public class OptionsAnimator : MonoBehaviour
                 _optionUI.DOScale(1, _duration / 3)
                 .OnComplete(() => {
                     if (transform.GetSiblingIndex() == 0)
-                    ChairSliderEvents.OpenCancelButton(ChairSliderInfo.current.itemAnimationDuration);});
+                    ChairSliderEvents.OpenCancelButton(AnimationDurations.current.itemAnimationDuration);});
                 });
 
             _tweeningObj.transform.DOScale(_endScale, _duration).SetEase(_easeType);
@@ -195,4 +195,6 @@ public class OptionsAnimator : MonoBehaviour
         ChairSliderEvents.OnChangeControl -= StartMove;
         ChairSliderEvents.OnStartControl -= SetStartPosition;
     }
+
+
 }

@@ -17,9 +17,9 @@ public class ArrowButton : MonoBehaviour
     void Click()
     {
         if (_isRight)
-            ChairSliderEvents.Slide(Vector2.left, ChairSliderInfo.current.itemAnimationDuration);
+            ChairSliderEvents.Slide(Vector2.left, AnimationDurations.current.itemAnimationDuration);
         else 
-            ChairSliderEvents.Slide(Vector2.right, ChairSliderInfo.current.itemAnimationDuration);
+            ChairSliderEvents.Slide(Vector2.right, AnimationDurations.current.itemAnimationDuration);
     }
 
     private void OnDestroy()
